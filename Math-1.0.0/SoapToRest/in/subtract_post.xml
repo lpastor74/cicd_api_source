@@ -1,0 +1,41 @@
+<header description="SOAPAction" name="SOAPAction" scope="transport" value="http://tempuri.org/Subtract"/>
+<property name="REST_URL_POSTFIX" scope="axis2" action="remove"/>
+<property expression="json-eval($.Subtract.intA)" name="req.var.Subtract.intA"/>
+<property expression="json-eval($.Subtract.intB)" name="req.var.Subtract.intB"/>
+
+
+<filter source="get-property('axis2','ContentType')" regex="^application/json.*">
+  <then>
+    <payloadFactory description="transform" media-type="xml">
+      <format>
+        <soapenv:Envelope xmlns:soapenv="http://www.w3.org/2003/05/soap-envelope" xmlns:web="http://tempuri.org/">
+          <soapenv:Header/>
+          <soapenv:Body>
+            <web:Subtract xmlns:web="http://tempuri.org/">
+   <web:intA>$1</web:intA>
+   <web:intB>$2</web:intB>
+</web:Subtract>
+
+          </soapenv:Body>
+        </soapenv:Envelope>
+      </format>
+      <args>
+        <arg evaluator="xml" expression="get-property('req.var.Subtract.intA')"/>
+<arg evaluator="xml" expression="get-property('req.var.Subtract.intB')"/>
+
+      </args>
+    </payloadFactory>
+    <property description="messageProperty" name="messageType" scope="axis2" type="STRING" value="application/soap+xml"/>
+  </then>
+  <else>
+    <payloadFactory media-type="json" description="transform">
+      <format>
+        {"error": "Invalid Content-Type detected"}
+      </format>
+      <args>
+      </args>
+    </payloadFactory>
+    <property name="HTTP_SC" value="400" scope="axis2"/>
+    <respond></respond>
+  </else>
+</filter>

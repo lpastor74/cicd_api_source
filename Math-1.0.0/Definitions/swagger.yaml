@@ -1,0 +1,307 @@
+swagger: "2.0"
+info:
+  version: 1.0.0
+  title: Math
+security:
+ -
+  default: []
+paths:
+  /divide:
+    post:
+      operationId: Divide
+      parameters:
+       -
+        in: body
+        name: Payload
+        required: true
+        schema:
+          $ref: "#/definitions/divideInput"
+      responses:
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/divideOutput"
+      security:
+       -
+        default: []
+      x-wso2-soap:
+        x-soap-style: document
+        soap-action: http://tempuri.org/Divide
+        x-soap-message-type: document
+        soap-operation: Divide
+        namespace: http://tempuri.org/
+        x-soap-version: "1.2"
+      x-auth-type: Application & Application User
+      x-wso2-application-security:
+        security-types:
+         - oauth2
+        optional: false
+  /multiply:
+    post:
+      operationId: Multiply
+      parameters:
+       -
+        in: body
+        name: Payload
+        required: true
+        schema:
+          $ref: "#/definitions/multiplyInput"
+      responses:
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/multiplyOutput"
+      security:
+       -
+        default: []
+      x-wso2-soap:
+        x-soap-style: document
+        soap-action: http://tempuri.org/Multiply
+        x-soap-message-type: document
+        soap-operation: Multiply
+        namespace: http://tempuri.org/
+        x-soap-version: "1.2"
+      x-auth-type: Application & Application User
+      x-wso2-application-security:
+        security-types:
+         - oauth2
+        optional: false
+  /subtract:
+    post:
+      operationId: Subtract
+      parameters:
+       -
+        in: body
+        name: Payload
+        required: true
+        schema:
+          $ref: "#/definitions/subtractInput"
+      responses:
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/subtractOutput"
+      security:
+       -
+        default: []
+      x-wso2-soap:
+        x-soap-style: document
+        soap-action: http://tempuri.org/Subtract
+        x-soap-message-type: document
+        soap-operation: Subtract
+        namespace: http://tempuri.org/
+        x-soap-version: "1.2"
+      x-auth-type: Application & Application User
+      x-wso2-application-security:
+        security-types:
+         - oauth2
+        optional: false
+  /add:
+    post:
+      operationId: Add
+      parameters:
+       -
+        in: body
+        name: Payload
+        required: true
+        schema:
+          $ref: "#/definitions/addInput"
+      responses:
+        default:
+          description: ""
+          schema:
+            $ref: "#/definitions/addOutput"
+      security:
+       -
+        default: []
+      x-wso2-soap:
+        x-soap-style: document
+        soap-action: http://tempuri.org/Add
+        x-soap-message-type: document
+        soap-operation: Add
+        namespace: http://tempuri.org/
+        x-soap-version: "1.2"
+      x-auth-type: Application & Application User
+      x-wso2-application-security:
+        security-types:
+         - oauth2
+        optional: false
+securityDefinitions:
+  default:
+    type: oauth2
+    authorizationUrl: https://test.com
+    flow: implicit
+    scopes: {}
+definitions:
+  divideInput:
+    type: object
+    properties:
+      Divide:
+        $ref: "#/definitions/Divide"
+  divideOutput:
+    type: object
+    properties:
+      DivideResponse:
+        $ref: "#/definitions/DivideResponse"
+  multiplyInput:
+    type: object
+    properties:
+      Multiply:
+        $ref: "#/definitions/Multiply"
+  multiplyOutput:
+    type: object
+    properties:
+      MultiplyResponse:
+        $ref: "#/definitions/MultiplyResponse"
+  subtractInput:
+    type: object
+    properties:
+      Subtract:
+        $ref: "#/definitions/Subtract"
+  subtractOutput:
+    type: object
+    properties:
+      SubtractResponse:
+        $ref: "#/definitions/SubtractResponse"
+  addInput:
+    type: object
+    properties:
+      Add:
+        $ref: "#/definitions/Add"
+  addOutput:
+    type: object
+    properties:
+      AddResponse:
+        $ref: "#/definitions/AddResponse"
+  Add:
+    type: object
+    properties:
+      intA:
+        type: integer
+        format: int32
+      intB:
+        type: integer
+        format: int32
+    xml:
+      namespace: http://www.w3.org/2001/XMLSchema
+      prefix: s
+    x-namespace-qualified: true
+  Divide:
+    type: object
+    properties:
+      intA:
+        type: integer
+        format: int32
+      intB:
+        type: integer
+        format: int32
+    xml:
+      namespace: http://www.w3.org/2001/XMLSchema
+      prefix: s
+    x-namespace-qualified: true
+  MultiplyResponse:
+    type: object
+    properties:
+      MultiplyResult:
+        type: integer
+        format: int32
+    xml:
+      namespace: http://www.w3.org/2001/XMLSchema
+      prefix: s
+    x-namespace-qualified: true
+  DivideResponse:
+    type: object
+    properties:
+      DivideResult:
+        type: integer
+        format: int32
+    xml:
+      namespace: http://www.w3.org/2001/XMLSchema
+      prefix: s
+    x-namespace-qualified: true
+  SubtractResponse:
+    type: object
+    properties:
+      SubtractResult:
+        type: integer
+        format: int32
+    xml:
+      namespace: http://www.w3.org/2001/XMLSchema
+      prefix: s
+    x-namespace-qualified: true
+  Multiply:
+    type: object
+    properties:
+      intA:
+        type: integer
+        format: int32
+      intB:
+        type: integer
+        format: int32
+    xml:
+      namespace: http://www.w3.org/2001/XMLSchema
+      prefix: s
+    x-namespace-qualified: true
+  Subtract:
+    type: object
+    properties:
+      intA:
+        type: integer
+        format: int32
+      intB:
+        type: integer
+        format: int32
+    xml:
+      namespace: http://www.w3.org/2001/XMLSchema
+      prefix: s
+    x-namespace-qualified: true
+  AddResponse:
+    type: object
+    properties:
+      AddResult:
+        type: integer
+        format: int32
+    xml:
+      namespace: http://www.w3.org/2001/XMLSchema
+      prefix: s
+    x-namespace-qualified: true
+x-wso2-auth-header: Authorization
+x-wso2-api-key-header: ApiKey
+x-wso2-cors:
+  corsConfigurationEnabled: false
+  accessControlAllowOrigins:
+   - '*'
+  accessControlAllowCredentials: false
+  accessControlAllowHeaders:
+   - authorization
+   - Access-Control-Allow-Origin
+   - Content-Type
+   - SOAPAction
+   - apikey
+   - Internal-Key
+  accessControlAllowMethods:
+   - GET
+   - PUT
+   - POST
+   - DELETE
+   - PATCH
+   - OPTIONS
+x-wso2-production-endpoints:
+  urls:
+   - http://www.dneonline.com/calculator.asmx
+  type: address
+x-wso2-sandbox-endpoints:
+  urls:
+   - http://www.dneonline.com/calculator.asmx
+  type: address
+x-wso2-basePath: /calc/1.0.0
+x-wso2-transports:
+ - http
+ - https
+x-wso2-application-security:
+  security-types:
+   - oauth2
+  optional: false
+x-wso2-response-cache:
+  enabled: false
+  cacheTimeoutInSeconds: 300
