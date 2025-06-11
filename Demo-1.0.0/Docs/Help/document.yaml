@@ -1,0 +1,10 @@
+type: document
+version: v4.5.0
+data:
+  documentId: 9ebae321-3e48-4c6e-b6de-4ffd9bb5031d
+  name: Help
+  type: HOWTO
+  summary: 'how to do '
+  sourceType: FILE
+  fileName: pdf-sample_0.pdf
+  visibility: API_LEVEL
