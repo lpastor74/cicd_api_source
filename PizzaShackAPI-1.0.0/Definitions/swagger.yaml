@@ -4,7 +4,7 @@ info:
   description: |
     This is a RESTFul API for Pizza Shack online pizza delivery store.
   contact:
-    name: John Doe
+    name: Johny Doe
     url: http://www.pizzashack.com
     email: architecture@pizzashack.com
   license:
