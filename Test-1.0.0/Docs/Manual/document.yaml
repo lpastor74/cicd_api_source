@@ -1,0 +1,10 @@
+type: document
+version: v4.5.0
+data:
+  documentId: f3f02a9d-b3d5-4b68-a304-2dfd94376210
+  name: Manual
+  type: HOWTO
+  summary: manual
+  sourceType: FILE
+  fileName: pdf-sample_0.pdf
+  visibility: API_LEVEL
